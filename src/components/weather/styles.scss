@@ -1,0 +1,17 @@
+.root {
+
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    
+    .inner-wrapper {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 55vw;
+        height: 500px;
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, .25);
+        //border: 1px solid red;
+    }
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import styles from './styles.scss';
 
-export default class SearchBoxContainer extends Component {
+export default class SearchBox extends Component {
 
     render() {
         
@@ -10,7 +10,12 @@ export default class SearchBoxContainer extends Component {
             <div
                 className={styles.root}
             >
-                <input type='text' placeholder='Type city name and hit the enter...' />
+                <input 
+                    type='text'
+                    value={this.props.value}
+                    onChange={this.props.onChange}
+                    placeholder='Type city name and hit the enter...'
+                 />
             </div>
         );
     }
