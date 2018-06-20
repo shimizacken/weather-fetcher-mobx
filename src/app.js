@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MainContainer from './components/portal';
 
-const Root = _ => <div>Hello React!</div>;
-  
 ReactDOM.render(
-    <Root />,
+    <MainContainer />,
     document.getElementById('root')
 );

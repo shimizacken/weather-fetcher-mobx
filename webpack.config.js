@@ -7,10 +7,17 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-  entry: {main: './src/app.js'},
+  entry: [
+    'babel-polyfill',
+    './src/app.js'
+  ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx', '.webpack.js', '.web.js', '.json'],
+    modules: ['node_modules']
   },
   module: {
     rules: [
@@ -20,7 +27,11 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
-      }
+      },
+      // {
+      //   test: /\.json$/,
+      //   loader: 'json-loader'
+      // }
     ]
   },
   plugins: [
