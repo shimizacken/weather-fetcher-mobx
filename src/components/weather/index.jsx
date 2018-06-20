@@ -13,7 +13,8 @@ export default class WeatherContainer extends Component {
         cityName: '',
         icon: '',
         main: '',
-        description: ''
+        description: '',
+        weather: []
     };
     
     getUrl = buildApiUrl(token());
@@ -39,9 +40,7 @@ export default class WeatherContainer extends Component {
                 if (result.weather && result.weather.length > 0) {
                  
                     this.setState({
-                        icon: result.weather[0].icon,
-                        main: result.weather[0].main,
-                        description: result.weather[0].description
+                        weather: result.weather
                     });
                 }
             })
@@ -71,14 +70,14 @@ export default class WeatherContainer extends Component {
                         /> <Button />
                     </form>
                     {
-                        !this.state.main ? null : 
-                            <div>
+                        this.state.weather.length > 0 ?  
+                            <div
+                                className={styles.detailsWrapper}
+                            >
                                 <WeatherDetails
-                                    icon={this.state.icon}
-                                    main={this.state.main}
-                                    description={this.state.description}
+                                    weather={this.state.weather}
                                 />
-                            </div>
+                            </div> : null
                     }
                 </div>
             </div>

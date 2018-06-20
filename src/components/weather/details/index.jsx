@@ -11,15 +11,26 @@ export default class WeatherDetails extends Component {
             <div
                 className={styles.root}
             >
-                <div>
-                    <img src={buildIconUrl(this.props.icon)} />
-                </div>
-                <div>
-                    {this.props.main}
-                </div>
-                <div>
-                    {this.props.description}
-                </div>
+                {
+                    this.props.weather.map(city => {
+
+                        return <div key={city.id}>
+                                    <div
+                                        className={styles.innerWrapper}
+                                    >
+                                        <img src={buildIconUrl(city.icon)} />
+                                        <div>
+                                            <div>
+                                                Main: {city.main}
+                                            </div>
+                                            <div>
+                                                Description: {city.description}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    })
+                }
             </div>
         );
     }
