@@ -1,10 +1,15 @@
 @import '../../../styles/_globals.scss';
 
-input[type=text] {
+.root {
 
-    padding: 10px;
-    font-size: 20px;
-    border-radius: 15px;
-    border: 1px solid $input-border-color;
-    width: 80%;
+    display: inline-block;
+
+    input[type=text] {
+
+        padding: 10px;
+        font-size: 20px;
+        border-radius: 15px;
+        border: 1px solid $input-border-color;
+        width: 80%;
+    }
 }

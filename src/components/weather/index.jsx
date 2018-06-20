@@ -4,6 +4,7 @@ import SearchBoxContainer from './searchBox';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
 import WeatherDetails from './details';
+import { Button } from './button';
 import styles from './styles.scss';
 
 export default class WeatherContainer extends Component {
@@ -67,7 +68,7 @@ export default class WeatherContainer extends Component {
                         <SearchBoxContainer
                             value={this.state.cityName}
                             onChange={this.onChange}
-                        /> <button type='submit'>Search City</button>
+                        /> <Button />
                     </form>
                     {
                         !this.state.main ? null : 
