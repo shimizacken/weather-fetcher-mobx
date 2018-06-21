@@ -11,6 +11,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 module.exports = {
   entry: [
     'babel-polyfill',
+    'whatwg-fetch',
     './src/app.js'
   ],
   output: {
