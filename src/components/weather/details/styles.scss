@@ -1,10 +1,15 @@
 .root {
 
     
-    line-height: 25px;
+    line-height: 28px;
 
-    .inner-wrapper {
+    .icon-wrapper {
 
-        display: flex;
+        text-align: center;
+    }
+
+    h1 {
+
+        display: inline;
     }
 }

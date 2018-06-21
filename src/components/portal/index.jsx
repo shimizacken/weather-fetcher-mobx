@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import WeatherContainer from '../weather';
 import styles from './styles.scss';
 

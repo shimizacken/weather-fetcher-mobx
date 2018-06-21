@@ -7,7 +7,6 @@ import { Button } from './button';
 import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
 import { ErrorMessage } from './errorMessage';
-import * as mock from '../../services/openweathermap/mock';
 import { units } from '../../services/openweathermap/units';
 import styles from './styles.scss';
 
@@ -41,15 +40,6 @@ export default class WeatherContainer extends Component {
         });
 
         const url = this.getUrl(this.state.cityName)(units.celsius);
-
-        // setTimeout(() => {
-
-        //     this.setState({
-        //         weather: mock,
-        //         displayLoader: false
-        //     });
-
-        // }, 500);
 
         request(url)
             .then(result => {

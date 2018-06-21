@@ -3,9 +3,12 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractSASS = new ExtractTextPlugin('portal.css');
 
+const LOGO_PATH = path.resolve(__dirname, '../src/favicon.png');
+
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
-  filename: './index.html'
+  filename: './index.html',
+  favicon: LOGO_PATH
 });
 
 module.exports = {
