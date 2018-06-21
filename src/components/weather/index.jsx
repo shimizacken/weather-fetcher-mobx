@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import SearchBoxContainer from './searchBox';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
@@ -63,7 +62,13 @@ export default class WeatherContainer extends Component {
         //             });
         //         }
         //     })
-        //     .catch(error => console.error(error));
+        //     .catch(error => console.error(error))
+        //     .finally(_ => {
+
+        //         this.setState({
+        //             displayLoader: false
+        //         });
+        //     });
     }
 
     onChange = (e) => {
@@ -89,7 +94,12 @@ export default class WeatherContainer extends Component {
                         <SearchBoxContainer
                             value={this.state.cityName}
                             onChange={this.onChange}
-                        /> <Button />
+                        />
+                        <div
+                            className={styles.buttonWrapper}
+                        >
+                            <Button disabled={this.state.displayLoader} />
+                        </div>
                     </form>
                     {
                         this.state.weather.length > 0 ?  
