@@ -6,6 +6,7 @@ import WeatherDetails from './details';
 import { Button } from './button';
 import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
+import { ErrorMessage } from './errorMessage';
 import styles from './styles.scss';
 
 export default class WeatherContainer extends Component {
@@ -16,7 +17,8 @@ export default class WeatherContainer extends Component {
         main: '',
         description: '',
         displayLoader: false,
-        weather: []
+        errorMessage: '',
+        weather: undefined
     };
     
     getUrl = buildApiUrl(token());
@@ -32,7 +34,8 @@ export default class WeatherContainer extends Component {
         
         this.setState({
             displayLoader: true,
-            weather: []
+            weather: undefined,
+            errorMessage: ''
         });
 
         const url = this.getUrl(this.state.cityName);
@@ -52,13 +55,27 @@ export default class WeatherContainer extends Component {
             .then(result => {
 
                 if (result.weather && result.weather.length > 0) {
-                 
+                    
                     this.setState({
-                        weather: result.weather
+                        weather: result
                     });
                 }
+                else {
+
+                    if (result && result.message) {
+
+                        this.setState({
+                            errorMessage: result.message
+                        });
+                    }
+                }
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+
+                this.setState({
+                    errorMessage: error
+                });
+            })
             .finally(_ => {
 
                 this.setState({
@@ -98,7 +115,7 @@ export default class WeatherContainer extends Component {
                         </div>
                     </form>
                     {
-                        this.state.weather.length > 0 ?  
+                        this.state.weather ?  
                             <div
                                 className={styles.detailsWrapper}
                             >
@@ -110,6 +127,9 @@ export default class WeatherContainer extends Component {
                     {
                         this.state.displayLoader ? <Loader /> : null
                     }
+                    <ErrorMessage
+                        errorMessage={this.state.errorMessage}
+                    />                    
                 </div>
             </div>
         );

@@ -12,7 +12,7 @@ export default class WeatherDetails extends Component {
                 className={styles.root}
             >
                 {
-                    this.props.weather.map(city => {
+                    this.props.weather.weather.map(city => {
 
                         return <div key={city.id}>
                                     <div
