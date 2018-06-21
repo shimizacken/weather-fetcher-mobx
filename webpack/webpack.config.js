@@ -19,7 +19,7 @@ module.exports = {
     filename: 'main.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.webpack.js', '.web.js', '.json'],
+    extensions: ['.js', '.jsx', '.webpack.js', '.web.js', '.json', '.png'],
     modules: ['node_modules']
   },
   module: {
@@ -30,6 +30,10 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+          test: /\.(jpg|png|svg|ico)$/,
+          use: 'file-loader?name=./images/[hash].[ext]'
       },
       {
         test: /\.scss$/,

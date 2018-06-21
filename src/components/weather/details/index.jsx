@@ -18,13 +18,17 @@ export default class WeatherDetails extends Component {
                                     <div
                                         className={styles.innerWrapper}
                                     >
-                                        <img src={buildIconUrl(city.icon)} />
+                                        <div
+                                            style={{padding: '15px'}}
+                                        >
+                                            <img src={buildIconUrl(city.icon)} title={city.main} />
+                                        </div>
                                         <div>
                                             <div>
-                                                Main: {city.main}
+                                                <h2>{city.main}</h2>
                                             </div>
                                             <div>
-                                                Description: {city.description}
+                                                {city.description}
                                             </div>
                                         </div>
                                     </div>
