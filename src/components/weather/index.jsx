@@ -7,6 +7,8 @@ import { Button } from './button';
 import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
 import { ErrorMessage } from './errorMessage';
+import * as mock from '../../services/openweathermap/mock';
+import { units } from '../../services/openweathermap/units';
 import styles from './styles.scss';
 
 export default class WeatherContainer extends Component {
@@ -38,18 +40,16 @@ export default class WeatherContainer extends Component {
             errorMessage: ''
         });
 
-        const url = this.getUrl(this.state.cityName);
+        const url = this.getUrl(this.state.cityName)(units.celsius);
 
-        // const mock = {"coord":{"lon":35.23,"lat":31.78},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],"base":"stations","main":{"temp":301.92,"pressure":1015,"humidity":48,"temp_min":301.15,"temp_max":303.15},"visibility":10000,"wind":{"speed":4.1,"deg":270},"clouds":{"all":0},"dt":1529576400,"sys":{"type":1,"id":5913,"message":0.0653,"country":"PS","sunrise":1529548447,"sunset":1529599666},"id":281184,"name":"Jerusalem","cod":200};
-        
         // setTimeout(() => {
 
         //     this.setState({
-        //         weather: mock.weather,
+        //         weather: mock,
         //         displayLoader: false
         //     });
 
-        // }, 1500);
+        // }, 500);
 
         request(url)
             .then(result => {
