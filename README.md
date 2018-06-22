@@ -3,7 +3,7 @@ Simple web app for dispalying the weather based on a city name. The application 
 
 ## Usage
 ### Method 1  
-Download the artifact from the [`dist`](https://github.com/shimizacken/weather-fetcher/tree/master/dist) folder, and open the `index.html` file in the browser. It does not requires a web server
+Download the artifact from the [`bin`](https://github.com/shimizacken/weather-fetcher/tree/master/bin) folder, and open the `index.html` file in the browser. It does not requires a web server
 
 ### Method 2  
 Clone the repo
