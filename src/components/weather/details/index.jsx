@@ -6,9 +6,9 @@ export default class WeatherDetails extends Component {
 
     render() {
         
-        const { weather } = this.props;
+        const { data } = this.props;
 
-        const city = weather.weather[0];
+        const city = data.weather[0];
 
         return(
             <div
@@ -18,7 +18,7 @@ export default class WeatherDetails extends Component {
                     className={styles.cityName}
                 >
                     <h2>
-                        {weather.name} <span className={styles.country}>({weather.sys.country})</span> weather today
+                        {data.name} <span className={styles.country}>({data.sys.country})</span> weather today
                     </h2>
                 </div>
                 <div
@@ -35,19 +35,19 @@ export default class WeatherDetails extends Component {
                     </h1> / {city.description}
                 </div>
                 <div>
-                    Temp: {weather.main.temp}°
+                    Temp: {data.main.temp}°
                 </div>
                 <div>
-                    Pressure: {weather.main.pressure}
+                    Pressure: {data.main.pressure}
                 </div>
                 <div>
-                    Humidity: {weather.main.humidity}%
+                    Humidity: {data.main.humidity}%
                 </div>
                 <div>
-                    Wind: {weather.wind.speed}
+                    Wind: {data.wind.speed}
                 </div>
                 <div>
-                    Clouds: {weather.clouds.all}
+                    Clouds: {data.clouds.all}
                 </div>
             </div>
         );

@@ -1,9 +1,7 @@
 @import '../../../styles/_globals.scss';
 
-.root {
+.searchbox-wrapper {
 
-    display: inline-block;
-    margin-top: 1vh;
     width: 100%;
 
     input[type=text] {
@@ -12,6 +10,12 @@
         font-size: 20px;
         border-radius: 15px;
         border: 1px solid $input-border-color;
-        width: 90%;
+        width: 70%;
+    }
+
+    .button-wrapper {
+
+        margin: 15px;
+        display: inline-block;
     }
 }

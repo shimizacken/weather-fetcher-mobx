@@ -3,7 +3,6 @@ import SearchBoxContainer from './searchBox';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
 import WeatherDetails from './details';
-import { Button } from './button';
 import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
 import { ErrorMessage } from './errorMessage';
@@ -20,7 +19,7 @@ export default class WeatherContainer extends Component {
         description: '',
         displayLoader: false,
         errorMessage: '',
-        weather: undefined
+        data: undefined
     };
     
     getUrl = buildApiUrl(token());
@@ -35,7 +34,7 @@ export default class WeatherContainer extends Component {
                 if (result.weather && result.weather.length > 0) {
                     
                     this.setState({
-                        weather: result
+                        data: result
                     });
                 }
                 else {
@@ -73,7 +72,7 @@ export default class WeatherContainer extends Component {
         
         this.setState({
             displayLoader: true,
-            weather: undefined,
+            data: undefined,
             errorMessage: ''
         });
 
@@ -99,28 +98,23 @@ export default class WeatherContainer extends Component {
                     <Header />
                     <form
                         onSubmit={this.search}
-                        style={{width: '80%', textAlign: 'center'}}
                     >
                         <SearchBoxContainer
                             value={this.state.cityName}
                             onChange={this.onChange}
+                            displayLoader={this.state.displayLoader}
                         />
-                        <div
-                            className={styles.buttonWrapper}
-                        >
-                            <Button disabled={this.state.displayLoader} />
-                        </div>
                     </form>
                     <div
                         className={styles.resultsWrapper}
                     >
                         {
-                            this.state.weather ?  
+                            this.state.data ?  
                                 <div
                                     className={styles.detailsWrapper}
                                 >
                                     <WeatherDetails
-                                        weather={this.state.weather}
+                                        data={this.state.data}
                                     />
                                 </div> : null
                         }
