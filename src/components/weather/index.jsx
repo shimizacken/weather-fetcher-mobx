@@ -8,6 +8,7 @@ import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
 import { ErrorMessage } from './errorMessage';
 import { units } from '../../services/openweathermap/units';
+import { Header } from '../portal/header';
 import styles from './styles.scss';
 
 export default class WeatherContainer extends Component {
@@ -85,11 +86,12 @@ export default class WeatherContainer extends Component {
         
         return(
             <div
-                className={styles.root}
+                className={styles.mainWeatherWrapper}
             >
                 <div
                     className={styles.innerWrapper}
                 >
+                    <Header />
                     <form
                         onSubmit={this.search}
                         style={{width: '80%', textAlign: 'center'}}
@@ -105,7 +107,7 @@ export default class WeatherContainer extends Component {
                         </div>
                     </form>
                     <div
-                        className={styles.loaderWrapper}
+                        className={styles.resultsWrapper}
                     >
                         {
                             this.state.weather ?  

@@ -12,13 +12,13 @@ export default class WeatherDetails extends Component {
 
         return(
             <div
-                className={styles.root}
+                className={styles.detailsWrapper}
             >
                 <div
                     className={styles.cityName}
                 >
                     <h2>
-                        {weather.name} today
+                        {weather.name} <span className={styles.country}>({weather.sys.country})</span> weather today
                     </h2>
                 </div>
                 <div
@@ -45,6 +45,9 @@ export default class WeatherDetails extends Component {
                 </div>
                 <div>
                     Wind: {weather.wind.speed}
+                </div>
+                <div>
+                    Clouds: {weather.clouds.all}
                 </div>
             </div>
         );

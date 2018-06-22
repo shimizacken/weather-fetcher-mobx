@@ -1,4 +1,4 @@
-.root {
+.main-weather-wrapper {
 
     display: flex;
     align-items: center;
@@ -12,7 +12,7 @@
         align-items: center;
         padding: 20px;
         width: 50%;
-        height: 500px;
+        min-height: 60vh;
         border-radius: 20px;
         box-shadow: 1px 3px 22px -4px rgba(102,102,102,0.56);
         
@@ -21,12 +21,7 @@
             margin-top: 15px;
         }
 
-        .details-wrapper {
-
-            margin-top: 25px;
-        }
-
-        .loader-wrapper {
+        .results-wrapper {
 
             margin-top: 25px;
         }

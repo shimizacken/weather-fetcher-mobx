@@ -3,7 +3,7 @@ import styles from './styles.scss';
 
 export const Button = ({disabled}) => 
     <button
-        className={styles.root}
+        className={styles.searchButton}
         type='submit'
         disabled={disabled}
     >Search</button>;
