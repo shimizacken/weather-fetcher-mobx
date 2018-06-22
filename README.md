@@ -8,7 +8,7 @@ Download the artifact from the [`bin`](https://github.com/shimizacken/weather-fe
 ### Method 2  
 Clone the repo
 ```bash
-https://github.com/shimizacken/weather-fetcher.git
+git clone https://github.com/shimizacken/weather-fetcher.git
 ```
 then run the following command in the root folder:
 ```bash
