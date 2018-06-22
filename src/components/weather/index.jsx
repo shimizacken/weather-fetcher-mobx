@@ -22,11 +22,11 @@ export default class WeatherContainer extends Component {
         data: undefined
     };
     
-    getUrl = buildApiUrl(token());
+    searchByCityName = buildApiUrl(token(), units.celsius);
 
     getWeather = () => {
 
-        const url = this.getUrl(this.state.cityName)(units.celsius);
+        const url = this.searchByCityName(this.state.cityName);
 
         request(url)
             .then(result => {
