@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import WeatherContainer from '../weather';
 import styles from './styles.scss';
 
-export default class MainContainer extends Component {
+export default class MainPortalContainer extends Component {
 
     render() {
         

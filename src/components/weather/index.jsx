@@ -25,20 +25,7 @@ export default class WeatherContainer extends Component {
     
     getUrl = buildApiUrl(token());
 
-    search = (e) => {
-
-        e.preventDefault();
-
-        if (this.state.cityName === '') {
-            
-            return;
-        }
-        
-        this.setState({
-            displayLoader: true,
-            weather: undefined,
-            errorMessage: ''
-        });
+    getWeather = () => {
 
         const url = this.getUrl(this.state.cityName)(units.celsius);
 
@@ -73,6 +60,24 @@ export default class WeatherContainer extends Component {
                     displayLoader: false
                 });
             });
+    }
+
+    search = (e) => {
+
+        e.preventDefault();
+
+        if (this.state.cityName === '') {
+            
+            return;
+        }
+        
+        this.setState({
+            displayLoader: true,
+            weather: undefined,
+            errorMessage: ''
+        });
+
+        this.getWeather();
     }
 
     onChange = (e) => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MainContainer from './components/portal';
+import MainPortalContainer from './components/portal';
 
 ReactDOM.render(
-    <MainContainer />,
+    <MainPortalContainer />,
     document.getElementById('root')
 );
