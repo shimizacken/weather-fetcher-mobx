@@ -104,22 +104,26 @@ export default class WeatherContainer extends Component {
                             <Button disabled={this.state.displayLoader} />
                         </div>
                     </form>
-                    {
-                        this.state.weather ?  
-                            <div
-                                className={styles.detailsWrapper}
-                            >
-                                <WeatherDetails
-                                    weather={this.state.weather}
-                                />
-                            </div> : null
-                    }
-                    {
-                        this.state.displayLoader ? <Loader /> : null
-                    }
-                    <ErrorMessage
-                        errorMessage={this.state.errorMessage}
-                    />                    
+                    <div
+                        className={styles.loaderWrapper}
+                    >
+                        {
+                            this.state.weather ?  
+                                <div
+                                    className={styles.detailsWrapper}
+                                >
+                                    <WeatherDetails
+                                        weather={this.state.weather}
+                                    />
+                                </div> : null
+                        }
+                        {
+                            this.state.displayLoader ? <Loader /> : null
+                        }
+                        <ErrorMessage
+                            errorMessage={this.state.errorMessage}
+                        />
+                    </div>          
                 </div>
             </div>
         );

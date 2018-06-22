@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 import { buildIconUrl } from '../../../services/openweathermap/utils';
 import styles from './styles.scss';
 
@@ -15,6 +14,13 @@ export default class WeatherDetails extends Component {
             <div
                 className={styles.root}
             >
+                <div
+                    className={styles.cityName}
+                >
+                    <h2>
+                        {weather.name} today
+                    </h2>
+                </div>
                 <div
                     className={styles.iconWrapper}
                 >

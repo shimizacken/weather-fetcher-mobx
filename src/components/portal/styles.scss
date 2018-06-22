@@ -13,7 +13,7 @@ html, body {
 textarea, select, input, button {
 
     outline: none;
-    font-family: 'Ubuntu';
+    font-family: inherit;
     color: $main-font-color;
 }
 
