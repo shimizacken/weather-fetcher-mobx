@@ -19,10 +19,6 @@ and then run:
 npm start
 ```
 
-<div style="text-align:center">
-    ![alt text](src/assets/screenshots/p1.png "Default view")
-</div>
+![alt text](src/assets/screenshots/p1.png "Default view")
 
-<div style="text-align:center">
-    ![alt text](src/assets/screenshots/p2.png "Small screens")
-</div>
+![alt text](src/assets/screenshots/p2.png "Small screens")
