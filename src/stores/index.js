@@ -1,5 +1,5 @@
 import favorites from './favorites';
 
-export {
+export default {
     favorites
 };

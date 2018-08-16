@@ -9,7 +9,9 @@ import { ErrorMessage } from './errorMessage';
 import { units } from '../../services/openweathermap/units';
 import { Header } from '../portal/header';
 import styles from './styles.scss';
+import { inject, observer } from 'mobx-react';
 
+@inject('favorites') @observer
 export default class WeatherContainer extends Component {
 
     state = {
