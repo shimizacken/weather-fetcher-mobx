@@ -7,12 +7,9 @@
     "start": "webpack-dev-server --config=./webpack/webpack.config.js --mode development --open --hot",
     "prod": "webpack --config=./webpack/webpack.config.js --mode production"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shimizacken/weather-fetcher.git"
-  },
+  "repository": "git+https://github.com/shimizacken/weather-fetcher.git",
   "keywords": [],
-  "author": "",
+  "author": "--global <shimizacken@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/shimizacken/weather-fetcher/issues"
