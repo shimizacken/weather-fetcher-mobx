@@ -11,7 +11,7 @@ import { Header } from '../portal/header';
 import styles from './styles.scss';
 import { inject, observer } from 'mobx-react';
 
-@inject('favorites') @observer
+@inject('favorites', 'searchHistory') @observer
 export default class WeatherContainer extends Component {
 
     state = {
@@ -28,6 +28,8 @@ export default class WeatherContainer extends Component {
 
     getWeather = () => {
 
+        window.HISTORY = this.props.searchHistory;
+        
         const url = this.searchByCityName(this.state.cityName);
 
         request(url)
@@ -38,6 +40,8 @@ export default class WeatherContainer extends Component {
                     this.setState({
                         data: result
                     });
+
+                    this.props.searchHistory.setHistory(result);
                 }
                 else {
 
