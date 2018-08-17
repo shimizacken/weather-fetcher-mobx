@@ -8,6 +8,7 @@ import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
 import { ErrorMessage } from './errorMessage';
 import { units } from '../../services/openweathermap/units';
+import RadioButton from '../portal/radioButton';
 const uniqid = require('uniqid');
 import styles from './styles.scss';
 
@@ -127,6 +128,11 @@ export default class WeatherContainer extends Component {
                             displayLoader={this.state.displayLoader}
                         />
                     </form>
+                    <div>
+                        <RadioButton text='Celsius' name='temperatureType' className={styles.radioButton} checked />
+                        <RadioButton text='Fahrenheit' name='temperatureType' className={styles.radioButton} />
+                        <RadioButton text='Kelvin' name='temperatureType' className={styles.radioButton} />
+                    </div>
                     <div
                         className={styles.resultsWrapper}
                     >
