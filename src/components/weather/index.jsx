@@ -28,8 +28,6 @@ export default class WeatherContainer extends Component {
 
     getWeather = () => {
 
-        window.HISTORY = this.props.searchHistory;
-        
         const url = this.searchByCityName(this.state.cityName);
 
         request(url)
@@ -41,7 +39,20 @@ export default class WeatherContainer extends Component {
                         data: result
                     });
 
-                    this.props.searchHistory.setHistory(result);
+                    let newArr = [];
+
+                    if (this.props.searchHistory.historyList) {
+                    
+                        newArr = this.props.searchHistory.historyList.slice(0);
+                    }
+                    
+                    newArr.push({
+                        id: result.id,
+                        history: result,
+                        date: new Date()
+                    })
+
+                    this.props.searchHistory.setHistory(newArr);
                 }
                 else {
 

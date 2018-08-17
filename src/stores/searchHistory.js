@@ -2,35 +2,26 @@ import { observable, action, computed, autorun } from 'mobx';
 
 class SearchHistory {
 
-    @observable historyList = [];
+    @observable historyList;
 
     constructor() {
 
-        autorun(_ => console.log('historyList', this.historyList))
+        autorun(() => console.log('historyList', this.historyList))
     }
 
-    @computed searchHistoryLength() {
+    @computed get searchHistoryLength() {
 
         if (!this.historyList) {
             
             return 0;
         }
-        
+
         return this.historyList.length;
     }
 
     @action setHistory(history) {
 
-        if (!this.historyList) {
-            
-            this.historyList = [];
-        }
-
-        this.historyList.push({
-            id: history.id,
-            history: history,
-            date: new Date()
-        });
+        this.historyList = history;
     }
 
     @action getHistory(id) {

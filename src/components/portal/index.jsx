@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import WeatherContainer from '../weather';
+import SearchHistoryContainer from '../weather/searchHistory';
 import styles from './styles.scss';
 
 export default class MainPortalContainer extends Component {
@@ -10,6 +11,7 @@ export default class MainPortalContainer extends Component {
             <div
                 className={styles.root}
             >
+                <SearchHistoryContainer />
                 <WeatherContainer />
             </div>
         );
