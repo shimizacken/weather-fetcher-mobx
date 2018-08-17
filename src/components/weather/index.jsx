@@ -24,7 +24,7 @@ export default class WeatherContainer extends Component {
         errorMessage: ''
     };
     
-    searchByCityName = buildApiUrl(token(), units.celsius);
+    searchByCityName = buildApiUrl(token(), this.props.weather.currentTempType);
 
     updateHistorylist = result => {
 
@@ -110,6 +110,12 @@ export default class WeatherContainer extends Component {
         });
     }
 
+    radioChanged = e => {
+
+        this.props.weather.setTempType(e.target.value);
+        this.searchByCityName = buildApiUrl(token(), this.props.weather.currentTempType);
+    }
+
     render() {
         
         return(
@@ -129,9 +135,28 @@ export default class WeatherContainer extends Component {
                         />
                     </form>
                     <div>
-                        <RadioButton text='Celsius' name='temperatureType' className={styles.radioButton} checked />
-                        <RadioButton text='Fahrenheit' name='temperatureType' className={styles.radioButton} />
-                        <RadioButton text='Kelvin' name='temperatureType' className={styles.radioButton} />
+                        <RadioButton
+                            text='Celsius'
+                            value={units.celsius}
+                            name='temperatureType'
+                            className={styles.radioButton}
+                            checked
+                            onChange={this.radioChanged}
+                        />
+                        <RadioButton
+                            text='Fahrenheit'
+                            value={units.fahrenheit}
+                            name='temperatureType'
+                            className={styles.radioButton}
+                            onChange={this.radioChanged}
+                        />
+                        <RadioButton
+                            text='Kelvin'
+                            value={units.kelvin}
+                            name='temperatureType'
+                            className={styles.radioButton}
+                            onChange={this.radioChanged}
+                        />
                     </div>
                     <div
                         className={styles.resultsWrapper}

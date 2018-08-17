@@ -7,7 +7,8 @@ export default class RadioButton extends Component {
 
     render() {
 
-        const { text, name, checked, className, style } = this.props;
+        const { text, name, checked, className, style,
+                onChange, value } = this.props;
 
         return(
             <label
@@ -18,6 +19,8 @@ export default class RadioButton extends Component {
                     type='radio'
                     defaultChecked={checked}
                     name={name}
+                    onChange={onChange}
+                    value={value}
                 />
                 <span
                     className={styles.checkmark}
