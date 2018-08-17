@@ -14,6 +14,9 @@ export default class SearchHistoryList extends Component {
                         return <div
                                     key={item.id}
                                     className={style.listItem}
+                                    title={
+                                        `${item.history.name} (${item.history.sys.country}), Temp: ${item.history.main.temp}°`
+                                    }
                                 >
                                     {
                                         item.history.name
