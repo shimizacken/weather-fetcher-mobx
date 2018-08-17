@@ -8,7 +8,6 @@ import { Loader } from '../portal/loader';
 import { request } from '../../services/net/fetch';
 import { ErrorMessage } from './errorMessage';
 import { units } from '../../services/openweathermap/units';
-import { Header } from '../portal/header';
 const uniqid = require('uniqid');
 import styles from './styles.scss';
 
@@ -119,7 +118,6 @@ export default class WeatherContainer extends Component {
                 <div
                     className={styles.innerWrapper}
                 >
-                    <Header />
                     <form
                         onSubmit={this.search}
                     >
