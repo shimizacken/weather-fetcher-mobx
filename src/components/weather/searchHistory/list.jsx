@@ -18,6 +18,11 @@ export default class SearchHistoryList extends Component {
                                     {
                                         item.history.name
                                     }
+                                    <div
+                                        className={style.dateTime}
+                                    >
+                                        {item.date.toLocaleString()}
+                                    </div>
                                 </div>
                     })
                 }

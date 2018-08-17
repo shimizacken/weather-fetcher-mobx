@@ -4,11 +4,6 @@ class SearchHistory {
 
     @observable historyList;
 
-    constructor() {
-
-        autorun(() => console.log('historyList', this.historyList))
-    }
-
     @computed get searchHistoryLength() {
 
         if (!this.historyList) {

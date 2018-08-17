@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
 import SearchBoxContainer from './searchBox';
 import { token } from '../../services/openweathermap/token';
 import { buildApiUrl } from '../../services/openweathermap/utils';
@@ -8,8 +9,8 @@ import { request } from '../../services/net/fetch';
 import { ErrorMessage } from './errorMessage';
 import { units } from '../../services/openweathermap/units';
 import { Header } from '../portal/header';
+const uniqid = require('uniqid');
 import styles from './styles.scss';
-import { inject, observer } from 'mobx-react';
 
 @inject('favorites', 'searchHistory') @observer
 export default class WeatherContainer extends Component {
@@ -48,7 +49,7 @@ export default class WeatherContainer extends Component {
                     }
                     
                     newArr.push({
-                        id: result.id,
+                        id: uniqid(),
                         history: result,
                         date: new Date()
                     })
