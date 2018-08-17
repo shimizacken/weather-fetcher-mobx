@@ -36,7 +36,8 @@ export default class WeatherContainer extends Component {
                 if (result.weather && result.weather.length > 0) {
                     
                     this.setState({
-                        data: result
+                        data: result,
+                        cityName: ''
                     });
 
                     let newArr = [];
