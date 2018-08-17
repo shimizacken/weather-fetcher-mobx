@@ -12,7 +12,7 @@ import { Header } from '../portal/header';
 const uniqid = require('uniqid');
 import styles from './styles.scss';
 
-@inject('favorites', 'searchHistory') @observer
+@inject('weather', 'favorites', 'searchHistory') @observer
 export default class WeatherContainer extends Component {
 
     state = {
@@ -21,11 +21,28 @@ export default class WeatherContainer extends Component {
         main: '',
         description: '',
         displayLoader: false,
-        errorMessage: '',
-        data: undefined
+        errorMessage: ''
     };
     
     searchByCityName = buildApiUrl(token(), units.celsius);
+
+    updateHistorylist = result => {
+
+        let newArr = [];
+
+        if (this.props.searchHistory.historyList) {
+        
+            newArr = this.props.searchHistory.historyList.slice(0);
+        }
+        
+        newArr.push({
+            id: uniqid(),
+            history: result,
+            date: new Date()
+        })
+
+        this.props.searchHistory.setHistory(newArr);
+    }
 
     getWeather = () => {
 
@@ -37,24 +54,11 @@ export default class WeatherContainer extends Component {
                 if (result.weather && result.weather.length > 0) {
                     
                     this.setState({
-                        data: result,
                         cityName: ''
                     });
 
-                    let newArr = [];
-
-                    if (this.props.searchHistory.historyList) {
-                    
-                        newArr = this.props.searchHistory.historyList.slice(0);
-                    }
-                    
-                    newArr.push({
-                        id: uniqid(),
-                        history: result,
-                        date: new Date()
-                    })
-
-                    this.props.searchHistory.setHistory(newArr);
+                    this.props.weather.setWeather(result);
+                    this.updateHistorylist(result);
                 }
                 else {
 
@@ -91,9 +95,10 @@ export default class WeatherContainer extends Component {
         
         this.setState({
             displayLoader: true,
-            data: undefined,
             errorMessage: ''
         });
+
+        this.props.weather.setWeather(undefined);
 
         this.getWeather();
     }
@@ -128,12 +133,12 @@ export default class WeatherContainer extends Component {
                         className={styles.resultsWrapper}
                     >
                         {
-                            this.state.data ?  
+                            this.props.weather.currentWeather ?  
                                 <div
                                     className={styles.detailsWrapper}
                                 >
                                     <WeatherDetails
-                                        data={this.state.data}
+                                        data={this.props.weather.currentWeather}
                                     />
                                 </div> : null
                         }
