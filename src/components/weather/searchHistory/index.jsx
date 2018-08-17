@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { inject, observer } from 'mobx-react';
 import List from './list';
+import style from './style.scss';
 
 @inject('searchHistory') @observer
 export default class SearchHistoryContainer extends Component {
@@ -14,10 +15,12 @@ export default class SearchHistoryContainer extends Component {
         }
         
         return(
-            <div>
-                <h1>
+            <div
+                className={style.searchHistoryPanel}
+            >
+                <h3>
                     History ({this.props.searchHistory.searchHistoryLength})
-                </h1>
+                </h3>
                 <List
                     list={this.props.searchHistory.historyList.reverse()}
                 />

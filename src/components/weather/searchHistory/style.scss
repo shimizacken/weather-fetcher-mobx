@@ -1,0 +1,22 @@
+@import '../../../styles/_globals.scss';
+
+.search-history-panel {
+
+    position: fixed;
+    height: 100vh;
+
+    padding: 15px;
+    border: 1px solid $input-border-color;
+}
+
+.list-item {
+
+    box-sizing: content-box;
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+
+        font-weight: bold;
+    }
+}
