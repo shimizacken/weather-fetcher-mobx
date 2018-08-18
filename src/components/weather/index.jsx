@@ -97,7 +97,7 @@ export default class WeatherContainer extends Component {
             errorMessage: ''
         });
 
-        this.props.weather.setWeather(undefined);
+        this.props.weather.setWeather();
 
         this.getWeather();
     }
