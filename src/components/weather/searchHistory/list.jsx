@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Item from './item';
 import style from './style.scss';
 
 export default class SearchHistoryList extends Component {
@@ -11,22 +12,10 @@ export default class SearchHistoryList extends Component {
                 {
                     this.props.list.map(item => {
 
-                        return <div
+                        return <Item
                                     key={item.id}
-                                    className={style.listItem}
-                                    title={
-                                        `${item.history.name} (${item.history.sys.country}), Temp: ${item.history.main.temp}°`
-                                    }
-                                >
-                                    {
-                                        item.history.name
-                                    }
-                                    <div
-                                        className={style.dateTime}
-                                    >
-                                        {item.date.toLocaleString()}
-                                    </div>
-                                </div>
+                                    item={item}
+                                />
                     })
                 }
             </div>
