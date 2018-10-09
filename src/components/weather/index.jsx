@@ -37,6 +37,7 @@ export default class WeatherContainer extends Component {
         newArr.push({
             id: uniqid(),
             history: result,
+            tempType: this.props.weather.currentTempType,
             date: new Date()
         })
 

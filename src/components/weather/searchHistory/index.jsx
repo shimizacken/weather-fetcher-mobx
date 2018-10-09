@@ -18,9 +18,9 @@ export default class SearchHistoryContainer extends Component {
             <div
                 className={style.searchHistoryPanel}
             >
-                <h3>
+                <h4>
                     History ({this.props.searchHistory.searchHistoryLength})
-                </h3>
+                </h4>
                 <List
                     list={this.props.searchHistory.historyList.reverse()}
                 />
